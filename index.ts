@@ -1,6 +1,8 @@
 import { serve } from "bun";
-import Home from "./pages/Home.html"
-
+import Home from "./src/pages/Home.html"
+import "./src/static/jpfont.ttf"
+import "./src/static/regular.ttf"
+import "./src/static/style.css"
 const server = serve({
   port: 3000,
   routes: {

@@ -1,0 +1,65 @@
+:root {
+  --text: #292929;
+  --text-muted: #6c6c6c;
+  --background: #fffefa;
+  --primary: #000000;
+  --secondary: #ffffff;
+  --accent: #ff2222;
+
+  interpolate-size: allow-keywords;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "nikyou";
+  src: url("./nikyou.ttf");
+}
+
+@font-face {
+  font-family: "jpfont";
+  src: url("./jpfont.ttf");
+}
+
+@font-face {
+  font-family: "regular";
+  src: url("./regular.ttf");
+}
+
+body {
+  font-family: "jpfont";
+  background-color: var(--background);
+  color: var(--text);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "nikyou";
+}
+
+a,
+button {
+  color: var(--text);
+  text-decoration: none;
+  font-family: "nikyou";
+}
+
+a {
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    color: var(--accent);
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}

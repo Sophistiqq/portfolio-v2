@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome :)</title>
+  <link rel="stylesheet" href="../static/style.css">
+  <link rel="stylesheet" href="../styles/Home.css">
+</head>
+
+<body>
+  <header>
+
+    <h3 class="floating-logo"><a href="/">Roi Borromeo</a></h3>
+    <nav class="nav">
+      <a href="/works">my works</a>
+      <a href="/about">about me</a>
+      <a href="/contact">contact</a>
+    </nav>
+    <button class="menu">menu</button>
+  </header>
+
+  <main>
+    <h1>Creating websites with simplistic nature</h1>
+    <p>See how my websites lacks the element but full of emotions!</p>
+    <span class="hint">(scroll to explore)</span>
+  </main>
+  <main>
+    <h1>Creating websites with simplistic nature</h1>
+    <p>See how my websites lacks the element but full of emotions!</p>
+  </main>
+</body>
+
+<script>
+  const nav = document.querySelector(".nav");
+  const menu = document.querySelector(".menu");
+
+  menu.addEventListener("click", () => {
+    nav.classList.toggle("open");
+    menu.innerHTML = nav.classList.contains("open") ? "close" : "menu";
+  });
+</script>
+
+</html>
