@@ -10,7 +10,6 @@ header {
   height: 10dvh;
   background-color: var(--background);
   z-index: 2;
-  /* Higher than nav */
 }
 
 .nav {
