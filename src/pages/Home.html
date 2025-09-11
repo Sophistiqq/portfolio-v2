@@ -15,7 +15,7 @@
 
     <h3 class="floating-logo"><a href="/">Roi Borromeo</a></h3>
     <nav class="nav">
-      <a href="/works">my works</a>
+      <a href="/#works-section">my works</a>
       <a href="/about">about me</a>
       <a href="/contact">contact</a>
     </nav>
@@ -24,28 +24,67 @@
 
   <main>
     <h1>Creating minimalistic websites because I'm lazy</h1>
-    <p>See? there's not much to elements here!</p>
+    <p>See? there's not much elements here!</p>
     <span class="hint">(scroll to explore)</span>
   </main>
-  <section>
+  <section id="works-section">
     <h2>My works</h2>
     <div class="magic-text">
       <p class="magic-hover">hover over em!</p>
       <p class="the-magic">those are pretty much stupid apps I made because I am too lazy to do my side projects, but I
         practice my css
         skills and trying to expand my knowledge at everything(<u> which is actually overwhelming XD</u>)</p>
+
     </div>
-  </section>
+    <div class="works-wrapper">
+      <div class="works">
+        <article>
+          <img src="../static/CDCS.png" alt="">
+          <h6 class="project-name">cdcs</h6>
+          <p class="project-type">App</p>
+          <p class="project-description">Personal clipboard sharing platform</p>
+        </article>
+        <article>
+          <img src="../static/Knowbia.png" alt="">
+          <h6 class="project-name">knowbia</h6>
+          <p class="project-type">Website</p>
+          <p class="project-description">Website for our Final Project</p>
+        </article>
+        <article class="negative">
+          <img src="../static/JobTrackr.png" alt="">
+          <h6 class="project-name">jobtrackr</h6>
+          <p class="project-type">App</p>
+          <p class="project-description">Stupid job tracker app</p>
+        </article>
+        <article>
+          <img src="../static/Knowbia-PWA.png" alt="">
+          <h6 class="project-name">knowbia-pwa</h6>
+          <p class="project-type">App</p>
+          <p class="project-description" title="(not working because the app is supposed to be offline)">The failed PWA
+            for Knowbia
+          </p>
+        </article>
+        <article>
+          <img src="../static/Portfolio-v1.png" alt="">
+          <h6 class="project-name">old-portfolio</h6>
+          <p class="project-type">Website</p>
+          <p class="project-description">I mean, it looks stupid</p>
+        </article>
+      </div>
+      <div class="scrollbar">
+        <div class="scrollbar-track"></div>
+        <div class="scrollbar-thumb">[ DRAG ]</div>
+      </div>
+    </div>
+  </section id="testing-section">
+  <main>
+    <h1>Creating minimalistic websites because I'm lazy</h1>
+    <p>See? there's not much to elements here!</p>
+    <span class="hint">(scroll to explore)</span>
+  </main>
 </body>
 
-<script>
-  const nav = document.querySelector(".nav");
-  const menu = document.querySelector(".menu");
-
-  menu.addEventListener("click", () => {
-    nav.classList.toggle("open");
-    menu.innerHTML = nav.classList.contains("open") ? "close" : "menu";
-  });
+<script defer src="script.js">
 </script>
 
 </html>
