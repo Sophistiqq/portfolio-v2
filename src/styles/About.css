@@ -1,0 +1,62 @@
+/* make the background color from --text to --background as we scroll */
+.about-me {
+  background-color: var(--background);
+  color: var(--text);
+  position: relative;
+  height: 100vh;
+  overflow-y: scroll;
+  margin-top: 2rem;
+  transition: all 0.2s ease-in-out;
+  animation: bg-text linear forwards;
+  animation-timeline: view();
+  animation-range: entry 0% cover 50%;
+  scroll-snap-type: y mandatory;
+  scroll-padding-top: 2rem;
+
+}
+
+@keyframes bg-text {
+  from {
+    background-color: var(--background);
+    color: var(--text);
+  }
+
+  to {
+    background-color: var(--text);
+    color: var(--background);
+  }
+}
+
+.about-me .bg-text {
+  position: absolute;
+  background: transparent;
+  inset: 0;
+  height: 100%;
+  margin: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 0;
+
+  h1 {
+    z-index: 1;
+  }
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 5vw;
+
+  .item {
+    padding: 1rem;
+    background-color: var(--background);
+    color: var(--text);
+    z-index: 1;
+    width: 30vw;
+    height: 40vh;
+  }
+}

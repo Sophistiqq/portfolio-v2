@@ -19,7 +19,7 @@ header {
   gap: 1rem;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 800px) {
   header {
     .floating-logo {
       position: absolute;
@@ -36,6 +36,52 @@ header {
       right: 10vw;
       font-size: 1.25rem;
     }
+  }
+
+  @keyframes move-logo-up {
+    from {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.5;
+    }
+
+    to {
+      top: 5dvh;
+      left: 1rem;
+      transform: translateY(-50%) scale(0.75);
+      opacity: 1;
+    }
+  }
+
+  @keyframes move-nav-up {
+    from {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.5;
+    }
+
+    to {
+      top: 5dvh;
+      right: 1rem;
+      transform: translateY(-50%);
+      opacity: 1;
+    }
+  }
+
+  header.animate-go-up .floating-logo {
+    animation: move-logo-up linear forwards;
+    animation-timeline: scroll(root);
+    animation-range: 0 45vh;
+  }
+
+  header.animate-go-up .nav {
+    animation: move-nav-up linear forwards;
+    animation-timeline: scroll(root);
+    animation-range: 0 45vh;
   }
 }
 
