@@ -10,6 +10,8 @@ const works = document.querySelector('.works');
 
 const thumb = document.querySelector('.scrollbar-thumb');
 const track = document.querySelector('.scrollbar-track');
+let startX = 0;
+let scrollStart = 0;
 
 function updateThumb() {
   const ratio = works.scrollLeft / (works.scrollWidth - works.clientWidth);

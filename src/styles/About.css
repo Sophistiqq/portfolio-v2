@@ -1,19 +1,38 @@
-/* make the background color from --text to --background as we scroll */
+/* About section - container with viewport clipping */
 .about-me {
-  background-color: var(--background);
-  color: var(--text);
+  background-color: var(--text);
+  /* Dark background for contrast */
+  color: var(--background);
+  /* Light text color */
   position: relative;
-  height: 100vh;
-  overflow-y: scroll;
   margin-top: 2rem;
+  height: auto;
   transition: all 0.2s ease-in-out;
   animation: bg-text linear forwards;
   animation-timeline: view();
   animation-range: entry 0% cover 50%;
-  scroll-snap-type: y mandatory;
-  scroll-padding-top: 2rem;
+  /* Create a new viewport context */
+  isolation: isolate;
+  display: grid;
+  padding-top: 1rem;
+  grid-template-columns: 1fr 1fr;
 
+  &::before {
+    content: "What you'd expect from ME";
+    position: sticky;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    font-family: "nikyou";
+    z-index: 0;
+    font-size: 3.5rem;
+    font-weight: bold;
+    pointer-events: none;
+  }
 }
+
 
 @keyframes bg-text {
   from {
@@ -24,39 +43,39 @@
   to {
     background-color: var(--text);
     color: var(--background);
+
+    .nav {
+      background-color: transparent;
+    }
   }
 }
 
-.about-me .bg-text {
-  position: absolute;
-  background: transparent;
-  inset: 0;
-  height: 100%;
-  margin: auto;
-  text-align: center;
+.item {
+  background-color: var(--background);
+  color: var(--text);
+  height: 40vh;
+  z-index: 999;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  z-index: 0;
-
-  h1 {
-    z-index: 1;
-  }
+  padding: 1rem;
+  font-size: 1.5rem;
 }
 
-.about-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding: 5vw;
+@media (max-width: 600px) {
+  .about-me {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+
+    &::before {
+      font-size: 2rem;
+      top: 10vh;
+    }
+  }
 
   .item {
+    height: max-content;
     padding: 1rem;
-    background-color: var(--background);
-    color: var(--text);
-    z-index: 1;
-    width: 30vw;
-    height: 40vh;
+    font-size: 1rem;
   }
 }
