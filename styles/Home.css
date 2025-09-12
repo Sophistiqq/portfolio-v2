@@ -9,7 +9,7 @@ header {
   padding: 1rem;
   height: 10dvh;
   /* background-color: var(--background); */
-  z-index: -10;
+  z-index: 1;
 }
 
 .nav {
