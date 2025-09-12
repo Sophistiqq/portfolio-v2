@@ -4,14 +4,14 @@ import "./src/static/jpfont.ttf"
 import "./src/static/regular.ttf"
 import "./src/static/style.css"
 const server = serve({
-  port: 3000,
+  port: process.env.PORT || 3000,
   routes: {
     "/": Home
   },
-  development: {
-    hmr: true,
-    console: true
-  }
+  // development: {
+  //   hmr: true,
+  //   console: true
+  // }
 
 })
 
