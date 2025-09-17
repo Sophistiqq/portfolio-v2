@@ -45,8 +45,8 @@ section {
   article {
     flex: 0 0 auto;
     position: relative;
-    width: 350px;
-    height: 400px;
+    width: clamp(250px, 60vw, 500px);
+    height: clamp(400px, 70vh, 900px);
     border: 1px solid var(--text-muted);
     overflow: hidden;
     cursor: pointer;
@@ -170,16 +170,13 @@ section {
   /* same height as track */
   background: var(--background);
   color: var(--text);
-  font-size: 10px;
-  font-family: "jpfont";
+  font-size: 1rem;
+  font-family: "nikyou";
   text-align: center;
   line-height: 1.2rem;
-  /* center [ DRAG ] vertically */
   cursor: grab;
   user-select: none;
   white-space: nowrap;
-  transition: left 0.2s ease;
-  /* smooth movement */
 
 }
 
@@ -196,7 +193,6 @@ article .hover-circle {
   justify-content: center;
   font-size: 0.85rem;
   pointer-events: none;
-  /* don't block clicks */
   transform: scale(0);
   opacity: 0;
   transition: transform 0.25s ease, opacity 0.25s ease;

@@ -4,11 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome :)</title>
+  <meta name="description" content="Portfolio of Roi Borromeo - Frontend developer from Philippines">
+  <title>Portfolio | Roi Borromeo</title>
   <link rel="stylesheet" href="static/style.css">
   <link rel="stylesheet" href="styles/Home.css">
   <link rel="stylesheet" href="styles/MyWorks.css">
   <link rel="stylesheet" href="styles/About.css">
+  <link rel="stylesheet" href="styles/Story.css">
+  <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -39,7 +42,9 @@
     </div>
     <div class="works-wrapper">
       <div class="works">
-        <article>
+        <article
+          title="This app is for my laptop who has no GUI, therefore, only uses my phone and a cli tool to copy code I generated from AI."
+          data-link="https://cdcs-clipboard.vercel.app">
           <img src="static/CDCS.png" alt="">
           <h6 class="project-name">cdcs</h6>
           <p class="project-type">App</p>
@@ -57,11 +62,11 @@
           <p class="project-type">App</p>
           <p class="project-description">Stupid job tracker app</p>
         </article>
-        <article>
+        <article title="(not working because the app is supposed to be offline)">
           <img src="static/Knowbia-PWA.png" alt="">
           <h6 class="project-name">knowbia-pwa</h6>
           <p class="project-type">App</p>
-          <p class="project-description" title="(not working because the app is supposed to be offline)">The failed PWA
+          <p class="project-description">The failed PWA
             for Knowbia
           </p>
         </article>
@@ -103,13 +108,35 @@
     <div class="separator"></div>
     <div class="separator"></div>
     <div class="item">
-      <h3>I can do any design, if I copy it from an experienced designer hehe</h3>
+      <h3>I can do any design, if I copy it from an experienced designer hee</h3>
     </div>
 
   </section>
-</body>
 
-<script defer src="script.js">
-</script>
+  <section class="story">
+    <h2>My Background</h2>
+
+    <p class="colorize-on-scroll">
+      For almost eight years, I've been on a journey with web development that started in senior high school. My passion
+      for
+      coding pushed me to learn constantly, even while juggling school and other responsibilities.
+      <br>
+      <br>
+      A significant part of my story involves the hardware I started with. I worked on a laptop with a broken hard drive
+      connector and only 2GB of RAM, forcing me to use my phone as a display for my web apps. These limitations became
+      my greatest
+      teacher. To make progress, I embraced the command line, switched from Windows to <strong>Arch Linux</strong>, and
+      became proficient in system optimization.
+      <br>
+      <br>
+      This path honed my skills in creating highly efficient, mobile-first applications and gave me a powerful
+      understanding of performance from the ground up. While I love building my own tools with bash scripts, my core
+      passion remains creating streamlined, user-friendly web experiences.
+      <br>
+      <br>
+      Well, that's it. thank you for reading!
+    </p>
+  </section>
+</body>
 
 </html>

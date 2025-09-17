@@ -5,7 +5,7 @@
   color: var(--background);
   /* Light text color */
   position: relative;
-  margin-top: 2rem;
+  margin-top: 6rem;
   height: auto;
   transition: all 0.2s ease-in-out;
   animation: bg-text linear forwards;
@@ -15,7 +15,9 @@
   isolation: isolate;
   display: grid;
   padding-top: 1rem;
+  gap: 2rem;
   grid-template-columns: 1fr 1fr;
+  padding-inline: 7rem;
 
   &::before {
     content: "What you'd expect from ME";
@@ -54,7 +56,7 @@
   background-color: var(--background);
   color: var(--text);
   height: 40vh;
-  z-index: 999;
+  z-index: 50;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,7 +67,8 @@
 @media (max-width: 600px) {
   .about-me {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: .25rem;
+    padding-inline: 2rem;
 
     &::before {
       font-size: 2rem;
