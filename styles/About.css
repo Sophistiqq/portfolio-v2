@@ -1,0 +1,84 @@
+/* About section - container with viewport clipping */
+.about-me {
+  background-color: var(--text);
+  /* Dark background for contrast */
+  color: var(--background);
+  /* Light text color */
+  position: relative;
+  margin-top: 6rem;
+  height: auto;
+  transition: all 0.2s ease-in-out;
+  animation: bg-text linear forwards;
+  animation-timeline: view();
+  animation-range: entry 0% cover 50%;
+  /* Create a new viewport context */
+  isolation: isolate;
+  display: grid;
+  padding-top: 1rem;
+  gap: 2rem;
+  grid-template-columns: 1fr 1fr;
+  padding-inline: 7rem;
+
+  &::before {
+    content: "What you'd expect from ME";
+    position: sticky;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    font-family: "nikyou";
+    z-index: 0;
+    font-size: 3.5rem;
+    font-weight: bold;
+    pointer-events: none;
+  }
+}
+
+
+@keyframes bg-text {
+  from {
+    background-color: var(--background);
+    color: var(--text);
+  }
+
+  to {
+    background-color: var(--text);
+    color: var(--background);
+
+    .nav {
+      background-color: transparent;
+    }
+  }
+}
+
+.item {
+  background-color: var(--background);
+  color: var(--text);
+  height: 40vh;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  font-size: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .about-me {
+    grid-template-columns: 1fr;
+    gap: .25rem;
+    padding-inline: 2rem;
+
+    &::before {
+      font-size: 2rem;
+      top: 10vh;
+    }
+  }
+
+  .item {
+    height: max-content;
+    padding: 1rem;
+    font-size: 1rem;
+  }
+}
