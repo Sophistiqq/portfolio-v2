@@ -42,10 +42,6 @@ html {
   src: url("../static/nikyou.ttf");
 }
 
-@font-face {
-  font-family: "alexandria";
-  src: url("../static/alexandria.ttf");
-}
 
 @font-face {
   font-family: "regular";
@@ -56,6 +52,55 @@ body {
   font-family: "nikyou";
   background-color: var(--background);
   color: var(--text);
+  position: relative;
+}
+
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0) scale(1);
+    border-radius: 50% 50% 50% 50%;
+  }
+
+  25% {
+    transform: translate(calc(100vw - 100%), 0) scale(1.1);
+    border-radius: 40% 60% 60% 40%;
+  }
+
+  50% {
+    transform: translate(calc(100vw - 100%), calc(100vh - 100%)) scale(1);
+    border-radius: 50% 50% 50% 50%;
+  }
+
+  75% {
+    transform: translate(0, calc(100vh - 100%)) scale(1.1);
+    border-radius: 60% 40% 40% 60%;
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1);
+    border-radius: 50% 50% 50% 50%;
+  }
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  z-index: -100;
+  width: 25rem;
+  height: 25rem;
+  background-color: rgba(255, 195, 0, 0.25);
+  filter: blur(100px);
+  animation: float 10s ease-in-out infinite alternate;
+}
+
+@media (max-width: 768px) {
+  body::before {
+    width: 10rem;
+    height: 10rem;
+  }
 }
 
 h1,
