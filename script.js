@@ -119,34 +119,53 @@ const ctaSection = document.querySelector('.cta-section');
 const storySection = document.querySelector('.story');
 
 function updateParagraphs() {
-  // Skip animation on mobile
-  if (window.innerWidth <= 600) {
-    paragraphs.forEach(p => p.classList.add('active'));
-    ctaSection.classList.add('active');
-    return;
-  }
-
+  const isMobile = window.innerWidth <= 600;
   const scrollProgress = window.scrollY;
   const sectionTop = storySection.offsetTop;
   const sectionHeight = storySection.offsetHeight;
   const relativeScroll = scrollProgress - sectionTop;
-  const progressRatio = relativeScroll / (sectionHeight * 0.5);
 
-  paragraphs.forEach((p, index) => {
-    const threshold = index / paragraphs.length;
+  if (isMobile) {
+    // Mobile: activate based on viewport position
+    const viewportMiddle = scrollProgress + (window.innerHeight * 0.6);
 
-    if (progressRatio > threshold) {
-      p.classList.add('active');
+    paragraphs.forEach((p) => {
+      const paragraphTop = p.getBoundingClientRect().top + scrollProgress;
+
+      // Activate when paragraph is in the middle 60% of viewport
+      if (viewportMiddle > paragraphTop) {
+        p.classList.add('active');
+      } else {
+        p.classList.remove('active');
+      }
+    });
+
+    // Activate CTA when it enters viewport
+    const ctaRect = ctaSection.getBoundingClientRect();
+    if (ctaRect.top < window.innerHeight * 0.8) {
+      ctaSection.classList.add('active');
     } else {
-      p.classList.remove('active');
+      ctaSection.classList.remove('active');
     }
-  });
-
-  // Activate CTA when last paragraph is active
-  if (progressRatio > 0.75) {
-    ctaSection.classList.add('active');
   } else {
-    ctaSection.classList.remove('active');
+    // Desktop: original scroll-based animation
+    const progressRatio = relativeScroll / (sectionHeight * 0.5);
+
+    paragraphs.forEach((p, index) => {
+      const threshold = index / paragraphs.length;
+
+      if (progressRatio > threshold) {
+        p.classList.add('active');
+      } else {
+        p.classList.remove('active');
+      }
+    });
+
+    if (progressRatio > 0.75) {
+      ctaSection.classList.add('active');
+    } else {
+      ctaSection.classList.remove('active');
+    }
   }
 }
 
