@@ -116,7 +116,6 @@ document.querySelectorAll('.works article').forEach(article => {
 // Scroll-triggered paragraph animations
 const paragraphs = document.querySelectorAll('.story-paragraph');
 const ctaSection = document.querySelector('.cta-section');
-const progressDots = document.querySelectorAll('.progress-dot');
 const storySection = document.querySelector('.story');
 
 function updateParagraphs() {
@@ -131,17 +130,15 @@ function updateParagraphs() {
   const sectionTop = storySection.offsetTop;
   const sectionHeight = storySection.offsetHeight;
   const relativeScroll = scrollProgress - sectionTop;
-  const progressRatio = relativeScroll / (sectionHeight * 0.8);
+  const progressRatio = relativeScroll / (sectionHeight * 0.5);
 
   paragraphs.forEach((p, index) => {
     const threshold = index / paragraphs.length;
 
     if (progressRatio > threshold) {
       p.classList.add('active');
-      progressDots[index]?.classList.add('active');
     } else {
       p.classList.remove('active');
-      progressDots[index]?.classList.remove('active');
     }
   });
 
@@ -152,17 +149,6 @@ function updateParagraphs() {
     ctaSection.classList.remove('active');
   }
 }
-
-// Smooth scroll to paragraph when clicking progress dots
-progressDots.forEach((dot, index) => {
-  dot.addEventListener('click', () => {
-    const targetProgress = (index / paragraphs.length) * storySection.offsetHeight * 0.8;
-    window.scrollTo({
-      top: storySection.offsetTop + targetProgress,
-      behavior: 'smooth'
-    });
-  });
-});
 
 window.addEventListener('scroll', updateParagraphs);
 window.addEventListener('resize', updateParagraphs);
