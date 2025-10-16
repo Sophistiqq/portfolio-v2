@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enhanced Story Section</title>
+  <style>
+    :root {
+      --text: #0a0a0a;
+      --background: #f5f5f5;
+      --accent: #3b82f6;
+      --accent-light: #60a5fa;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: var(--background);
+    }
+
+    .story {
+      min-height: 200vh;
+      background-color: var(--text);
+      color: var(--background);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .story-container {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: clamp(2rem, 5vw, 6rem);
+      gap: 4rem;
+    }
+
+    .story-content {
+      flex: 1;
+      max-width: 600px;
+      z-index: 2;
+      font-family: "alexandria", sans-serif;
+    }
+
+    .story-text {
+      font-size: clamp(1.125rem, 2vw, 1.5rem);
+      line-height: 1.7;
+      font-weight: bold;
+      opacity: 0.3;
+      transform: translateY(20px);
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .story-text.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .story-text strong {
+      color: var(--accent-light);
+      font-weight: 700;
+      position: relative;
+      display: inline;
+    }
+
+    .story-text strong::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-light);
+      transition: width 0.4s ease;
+    }
+
+    .story-text.active strong::after {
+      width: 100%;
+    }
+
+    .story-header {
+      flex: 0 0 auto;
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      position: relative;
+      z-index: 1;
+    }
+
+    .story-header h2 {
+      font-size: clamp(3rem, 8vw, 5rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      background: linear-gradient(180deg, var(--background) 0%, var(--accent-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+    }
+
+    /* Decorative elements */
+    .story::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 40%;
+      height: 100%;
+      background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-section {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .cta-section.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .cta-text {
+      font-size: clamp(1.125rem, 2vw, 1.5rem);
+      font-weight: 700;
+      color: var(--background);
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 600px) {
+      .story {
+        min-height: auto;
+        height: max-content;
+        padding: 1rem;
+        padding-bottom: 2rem;
+      }
+
+      .story-container {
+        position: static;
+        height: auto;
+        flex-direction: column-reverse;
+        justify-content: flex-start;
+        padding: 0;
+        gap: 1rem;
+      }
+
+      .story-header {
+        writing-mode: horizontal-tb;
+        text-orientation: initial;
+      }
+
+      .story-header h2 {
+        font-size: 2.5rem;
+      }
+
+      .story-content {
+        max-width: 100%;
+      }
+
+      .story-text {
+        font-size: clamp(1rem, 2vw, 1.5rem);
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .cta-section {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .story::before {
+        display: none;
+      }
+    }
+
+    /* Timeline decoration */
+    .timeline-line {
+      position: absolute;
+      left: 2rem;
+      top: 0;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(180deg, transparent 0%, var(--accent-light) 20%, var(--accent-light) 80%, transparent 100%);
+      opacity: 0.3;
+    }
+
+    @media (max-width: 600px) {
+      .timeline-line {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="story" id="story">
+    <div class="timeline-line"></div>
+
+    <div class="story-container">
+      <div class="story-content">
+        <p class="story-text colorize-on-scroll">
+          For almost eight years, I've been on a journey with web development that started in senior high school. My
+          passion for coding pushed me to learn constantly, even while juggling school and other responsibilities.
+          <br><br>
+          A significant part of my story involves the hardware I started with. I worked on a laptop with a broken hard
+          drive connector and only 2GB of RAM, forcing me to use my phone as a display for my web apps. These
+          limitations became my greatest teacher. To make progress, I embraced the command line, switched from Windows
+          to <strong>Arch Linux</strong>, and became proficient in system optimization.
+          <br><br>
+          This path honed my skills in creating highly efficient, mobile-first applications and gave me a powerful
+          understanding of performance from the ground up. While I love building my own tools with bash scripts, my core
+          passion remains creating streamlined, user-friendly web experiences.
+        </p>
+
+        <div class="cta-section">
+          <p class="cta-text">Thanks for reading! Let's connect?</p>
+        </div>
+      </div>
+
+      <div class="story-header">
+        <h2>My Background</h2>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Scroll-triggered text animation
+    const storyText = document.querySelector('.story-text');
+    const ctaSection = document.querySelector('.cta-section');
+    const storySection = document.querySelector('.story');
+
+    function updateStoryVisibility() {
+      // Skip animation on mobile
+      if (window.innerWidth <= 600) {
+        storyText.classList.add('active');
+        ctaSection.classList.add('active');
+        return;
+      }
+
+      const scrollProgress = window.scrollY;
+      const sectionTop = storySection.offsetTop;
+      const sectionHeight = storySection.offsetHeight;
+      const relativeScroll = scrollProgress - sectionTop;
+      const progressRatio = relativeScroll / (sectionHeight * 0.6);
+
+      if (progressRatio > 0.1) {
+        storyText.classList.add('active');
+      } else {
+        storyText.classList.remove('active');
+      }
+
+      if (progressRatio > 0.5) {
+        ctaSection.classList.add('active');
+      } else {
+        ctaSection.classList.remove('active');
+      }
+    }
+
+    window.addEventListener('scroll', updateStoryVisibility);
+    window.addEventListener('resize', updateStoryVisibility);
+    updateStoryVisibility(); // Initial call
+  </script>
+</body>
+
+</html>
