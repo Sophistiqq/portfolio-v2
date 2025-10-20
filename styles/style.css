@@ -5,13 +5,11 @@
   --primary: #000000;
   --secondary: #ffffff;
   --accent: #ff2222;
-
   interpolate-size: allow-keywords;
   scroll-behavior: smooth;
 }
 
 html {
-
   &::-webkit-scrollbar {
     width: 0.25rem;
     height: 0.25rem;
@@ -42,10 +40,19 @@ html {
   src: url("../static/nikyou.ttf");
 }
 
-
 @font-face {
   font-family: "regular";
   src: url("../static/regular.ttf");
+}
+
+@keyframes moveDots {
+  0% {
+    background-position: 0 0, 40px 40px;
+  }
+
+  100% {
+    background-position: 80px 80px, 120px 120px;
+  }
 }
 
 body {
@@ -56,8 +63,8 @@ body {
   background-image: radial-gradient(#444cf7 1px, transparent 1px), radial-gradient(#444cf7 1px, var(--background) 1px);
   background-size: 80px 80px;
   background-position: 0 0, 40px 40px;
+  animation: moveDots 5s linear infinite;
 }
-
 
 @keyframes float {
   0% {
