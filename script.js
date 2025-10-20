@@ -178,3 +178,87 @@ function updateParagraphs() {
 window.addEventListener('scroll', updateParagraphs);
 window.addEventListener('resize', updateParagraphs);
 updateParagraphs(); // Initial call
+
+const typewriter = document.querySelector('.typewriter');
+
+const text = typewriter.textContent;
+
+typewriter.innerHTML = '<span></span>';
+
+const typewriterSpan = typewriter.querySelector('span');
+
+
+
+let i = 0;
+
+let isDeleting = false;
+
+let isTyping = false;
+
+
+
+function typeWriter() {
+
+  isTyping = true;
+
+  const currentText = text.substring(0, i);
+
+  typewriterSpan.textContent = currentText;
+
+
+
+  if (!isDeleting && i < text.length) {
+
+    i++;
+
+    setTimeout(typeWriter, 100);
+
+  } else if (isDeleting && i > 0) {
+
+    i--;
+
+    setTimeout(typeWriter, 25);
+
+  } else {
+
+    isDeleting = !isDeleting;
+
+    if (isDeleting) {
+
+      setTimeout(typeWriter, 3000);
+
+    } else {
+
+      // Restart the animation
+
+      i = 0;
+
+      isTyping = false;
+
+      setTimeout(typeWriter, 250);
+
+    }
+
+  }
+
+}
+
+
+
+const observer = new IntersectionObserver((entries) => {
+
+  entries.forEach(entry => {
+
+    if (entry.isIntersecting && !isTyping) {
+
+      typeWriter();
+
+    }
+
+  });
+
+});
+
+
+
+observer.observe(typewriter);

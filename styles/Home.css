@@ -73,6 +73,8 @@ header {
       left: 1rem;
       transform: translateY(-50%) scale(0.75);
       opacity: 1;
+      color: var(--accent);
+      font-size: 3rem;
     }
   }
 
@@ -101,6 +103,18 @@ header {
 
   header.animate-go-up .nav {
     animation: move-nav-up linear forwards;
+    animation-timeline: scroll(root);
+    animation-range: 0 45vh;
+  }
+
+  @keyframes change-color-nav-links {
+    to {
+      color: var(--accent);
+    }
+  }
+
+  header.animate-go-up .nav a {
+    animation: change-color-nav-links linear forwards;
     animation-timeline: scroll(root);
     animation-range: 0 45vh;
   }
@@ -180,6 +194,7 @@ main {
 
   & h1 {
     min-width: 300px;
+    max-width: 80vw;
     font-size: 4rem;
   }
 
@@ -187,6 +202,7 @@ main {
     color: var(--text-muted);
     font-weight: bold;
     font-size: 1.25rem;
+    font-style: italic;
   }
 }
 
@@ -198,5 +214,31 @@ main {
     & h1 {
       font-size: 2.5rem;
     }
+  }
+}
+
+/* fancy text animation, make the text colorful gradient moving */
+
+.fancy-text {
+  background: linear-gradient(90deg,
+      var(--accent),
+      #696FC7,
+      #FFA4A4,
+      var(--accent));
+  background-size: 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: move-gradient 6s ease-in-out infinite alternate;
+}
+
+@keyframes move-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 100% 50%;
   }
 }
