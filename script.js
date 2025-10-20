@@ -108,6 +108,12 @@ document.querySelectorAll('.works article').forEach(article => {
     circle.style.transform = 'scale(0)';
     circle.style.opacity = '0';
   });
+
+  article.addEventListener('click', () => {
+    if (article.dataset.link) {
+      window.open(article.dataset.link, '_blank');
+    }
+  });
 });
 
 
