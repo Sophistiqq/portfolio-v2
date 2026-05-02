@@ -1,0 +1,46 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-brutal-yellow: #facc15;
+  --color-brutal-blue: #3b82f6;
+  --color-brutal-pink: #f472b6;
+  --color-brutal-green: #4ade80;
+  --color-brutal-black: #000000;
+  --color-brutal-white: #ffffff;
+}
+
+@utility brutal-border {
+  border-width: 4px;
+  border-color: var(--color-brutal-black);
+}
+
+@utility brutal-shadow {
+  box-shadow: 8px 8px 0px 0px rgba(0,0,0,1);
+}
+
+@utility brutal-shadow-hover {
+  transition-property: all;
+  transition-duration: 150ms;
+  &:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 12px 12px 0px 0px rgba(0,0,0,1);
+  }
+}
+
+@utility brutal-card {
+  @apply brutal-border brutal-shadow bg-brutal-white p-6;
+}
+
+@utility brutal-btn {
+  @apply brutal-border brutal-shadow-hover bg-brutal-yellow px-6 py-3 font-bold uppercase inline-block cursor-pointer;
+}
+
+@layer base {
+  body {
+    @apply bg-brutal-white text-brutal-black font-sans selection:bg-brutal-yellow selection:text-brutal-black;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-black uppercase tracking-tighter;
+  }
+}

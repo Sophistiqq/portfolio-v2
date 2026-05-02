@@ -1,0 +1,130 @@
+:root {
+  --text: #292929;
+  --text-muted: #6c6c6c;
+  --background: #fffefa;
+  --primary: #000000;
+  --secondary: #ffffff;
+  --accent: #ff2222;
+  interpolate-size: allow-keywords;
+  scroll-behavior: smooth;
+}
+
+html {
+  &::-webkit-scrollbar {
+    width: 0.25rem;
+    height: 0.25rem;
+    background-color: var(--background);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--text);
+    border-radius: 0.5rem;
+    border: 0.5rem solid var(--text-muted);
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: var(--background);
+    border-radius: 0.5rem;
+    border: 0.5rem solid var(--background);
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "nikyou";
+  src: url("../static/nikyou.ttf");
+}
+
+@font-face {
+  font-family: "regular";
+  src: url("../static/regular.ttf");
+}
+
+@keyframes moveDots {
+  0% {
+    background-position: 0 0, 40px 40px;
+  }
+
+  100% {
+    background-position: 80px 80px, 120px 120px;
+  }
+}
+
+body {
+  font-family: "nikyou";
+  background-color: var(--background);
+  color: var(--text);
+  position: relative;
+  background-image: radial-gradient(#444cf7 1px, transparent 1px), radial-gradient(#444cf7 1px, var(--background) 1px);
+  background-size: 80px 80px;
+  background-position: 0 0, 40px 40px;
+  animation: moveDots 5s linear infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0) scale(1);
+    border-radius: 50% 50% 50% 50%;
+  }
+
+  25% {
+    transform: translate(calc(100vw - 100%), 0) scale(1.1);
+    border-radius: 40% 60% 60% 40%;
+  }
+
+  50% {
+    transform: translate(calc(100vw - 100%), calc(100vh - 100%)) scale(1);
+    border-radius: 50% 50% 50% 50%;
+  }
+
+  75% {
+    transform: translate(0, calc(100vh - 100%)) scale(1.1);
+    border-radius: 60% 40% 40% 60%;
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1);
+    border-radius: 50% 50% 50% 50%;
+  }
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 10%;
+  left: 10%;
+  z-index: -100;
+  width: 25rem;
+  height: 25rem;
+  background-color: rgba(255, 195, 0, 0.25);
+  filter: blur(100px);
+  animation: float 10s ease-in-out infinite alternate;
+}
+
+@media (max-width: 768px) {
+  body::before {
+    width: 10rem;
+    height: 10rem;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "nikyou";
+}
+
+a,
+button {
+  color: var(--text);
+  text-decoration: none;
+  font-family: "nikyou";
+}
