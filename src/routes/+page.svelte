@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import { projects } from '$lib/data/projects';
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
 </script>
@@ -8,18 +9,21 @@
 </svelte:head>
 
 <!-- Hero Section -->
-<section class="min-h-[80vh] flex flex-col justify-center px-6 md:px-12 border-b-8 border-brutal-black bg-brutal-yellow">
+<section
+	class="min-h-[80vh] flex flex-col justify-center px-6 md:px-12 border-b-8 border-brutal-black bg-brutal-yellow"
+>
 	<h1 class="text-6xl md:text-[12rem] leading-none mb-8">
 		Pixel<br />Perfect<br /><span
 			class="bg-brutal-black text-brutal-white px-4 inline-block mt-2 md:mt-6">Accuracy.</span
 		>
 	</h1>
 	<p class="text-xl md:text-3xl max-w-2xl font-bold uppercase mb-12">
-		I build minimalistic websites with a strong focus on what matters. Currently based in the Philippines.
+		I build minimalistic websites with a strong focus on what matters. Currently based in the
+		Philippines.
 	</p>
 	<div class="flex flex-wrap gap-6">
-		<a href="#works" class="brutal-btn text-xl">See My Works</a>
-		<a href="#about" class="brutal-btn bg-brutal-white text-xl">The Story</a>
+		<a href="{base}/#works" class="brutal-btn text-xl">See My Works</a>
+		<a href="{base}/#about" class="brutal-btn bg-brutal-white text-xl">The Story</a>
 	</div>
 </section>
 

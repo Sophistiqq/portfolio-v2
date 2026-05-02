@@ -1,16 +1,19 @@
 <script lang="ts">
+	import { base } from '$app/paths';
 	import type { Project } from '$lib/data/projects';
 	let { project }: { project: Project } = $props();
 </script>
 
 <article class="brutal-card brutal-shadow-hover group flex flex-col gap-4 h-full">
 	<div class="relative overflow-hidden brutal-border h-48 bg-brutal-black">
-		<img 
-			src={project.image} 
-			alt={project.name} 
+		<img
+			src="{base}{project.image}"
+			alt={project.name}
 			class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 scale-110 group-hover:scale-100"
 		/>
-		<div class="absolute top-2 left-2 {project.color} brutal-border px-2 py-0.5 text-xs font-bold uppercase">
+		<div
+			class="absolute top-2 left-2 {project.color} brutal-border px-2 py-0.5 text-xs font-bold uppercase"
+		>
 			{project.type}
 		</div>
 	</div>
